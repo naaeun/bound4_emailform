@@ -1,9 +1,11 @@
-import { IconProps } from '@/shared/types/ui/icon.types';
-
-const ChevronDownIcon: React.FC<IconProps> = ({
+const ChevronDownIcon = ({
   fill = '#121317',
   width = 20,
   height = 20,
+}: {
+  fill: string;
+  width?: number;
+  height?: number;
 }) => {
   return (
     <svg

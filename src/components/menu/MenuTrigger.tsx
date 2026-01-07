@@ -1,7 +1,8 @@
 'use client';
 
-import { MenuTriggerProps } from '@/shared/types/ui/menu.types';
-import { ArrowDownIcon, ArrowUpIcon } from '../../../icons';
+import { MenuTriggerProps } from '../../types/menu.types';
+import ArrowDownIcon from '../ArrowDownIcon';
+import ArrowUpIcon from '../ArrowUpIcon';
 
 export default function MenuTrigger({
   onClick,

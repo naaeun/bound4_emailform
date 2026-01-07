@@ -1,5 +1,5 @@
-import { MenuItemProps } from '@/shared/types/ui/menu.types';
 import clsx from 'clsx';
+import { MenuItemProps } from '../../types/menu.types';
 
 export const MenuItem = ({
   label = 'Dropdown_Menu_Item',

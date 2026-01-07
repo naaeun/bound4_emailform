@@ -1,5 +1,5 @@
-import { MenuTextItemProps } from '@/shared/types/ui/menu.types';
 import clsx from 'clsx';
+import { MenuTextItemProps } from '../../types/menu.types';
 
 export const MenuTextItem = ({
   mainText = 'Menu_Item',
