@@ -38,8 +38,8 @@ const CopyModal = ({
   </div>
 
   <div style="font-size:14px; color:#6B7280; margin-bottom:16px;">
-    ${teamKo}${partKo ? ` | ${partKo}` : ''}${dutyKo ? ` | ${dutyKo}` : ''}${formData.position ? ` | ${formData.position}` : ''} <br/>
-    ${teamEn}${partEn ? ` | ${partEn}` : ''}${dutyEn ? ` | ${dutyEn}` : ''}${formData.engPosition ? ` | ${formData.engPosition}` : ''}
+    ${teamKo}${partKo ? ` | ${partKo}` : ''}${formData.position ? ` | ${formData.position}` : ''} ${dutyKo ? ` | ${dutyKo}` : ''}<br/>
+    ${teamEn}${partEn ? ` | ${partEn}` : ''}${formData.engPosition ? ` | ${formData.engPosition}` : ''} ${dutyEn ? ` | ${dutyEn}` : ''}
   </div>
 
   <div style="font-size:14px; margin-bottom:16px;">
