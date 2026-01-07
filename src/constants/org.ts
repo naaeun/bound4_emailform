@@ -20,12 +20,15 @@ export const PART_MAP: Record<string, { label: string; enLabel: string }> = {
     label: '선행기술연구 파트',
     enLabel: 'Advanced Technology R&D Engineer',
   },
-  '그로스러닝 파트': {
-    label: '그로스러닝 파트',
-    enLabel: 'Growth Learning Part',
+};
+
+export const DUTY_MAP: Record<string, { label: string; enLabel: string }> = {
+  리더: {
+    label: '리더',
+    enLabel: 'Leader',
   },
-  '파트 없음': {
-    label: '파트 없음',
-    enLabel: '',
+  매니저: {
+    label: '매니저',
+    enLabel: 'Manager',
   },
 };

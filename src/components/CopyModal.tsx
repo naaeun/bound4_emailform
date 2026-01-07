@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { PART_MAP, TEAM_MAP } from '../constants/org';
+import { DUTY_MAP, PART_MAP, TEAM_MAP } from '../constants/org';
 
 const CopyModal = ({
   formData,
@@ -14,6 +14,8 @@ const CopyModal = ({
     engDuty: string;
     phoneNumber: string;
     email: string;
+    position: string;
+    engPosition: string;
   };
   onOpenModal: () => void;
 }) => {
@@ -23,6 +25,8 @@ const CopyModal = ({
     const teamEn = TEAM_MAP[formData.team]?.enLabel ?? '';
     const partKo = PART_MAP[formData.part]?.label ?? '';
     const partEn = PART_MAP[formData.part]?.enLabel ?? '';
+    const dutyKo = DUTY_MAP[formData.duty]?.label ?? '';
+    const dutyEn = DUTY_MAP[formData.duty]?.enLabel ?? '';
 
     const html = `
 <div style="font-family:Pretendard, Arial, sans-serif; color:#111; line-height:1.6;">
@@ -34,8 +38,8 @@ const CopyModal = ({
   </div>
 
   <div style="font-size:14px; color:#6B7280; margin-bottom:16px;">
-    ${teamKo}${partKo ? ` | ${partKo}` : ''} | ${formData.duty}<br/>
-    ${teamEn}${partEn ? ` | ${partEn}` : ''} | ${formData.engDuty}
+    ${teamKo}${partKo ? ` | ${partKo}` : ''}${dutyKo ? ` | ${dutyKo}` : ''}${formData.position ? ` | ${formData.position}` : ''} <br/>
+    ${teamEn}${partEn ? ` | ${partEn}` : ''}${dutyEn ? ` | ${dutyEn}` : ''}${formData.engPosition ? ` | ${formData.engPosition}` : ''}
   </div>
 
   <div style="font-size:14px; margin-bottom:16px;">
@@ -47,7 +51,7 @@ const CopyModal = ({
     </div>
   </div>
 
-  <div style="margin:16px 0;">
+  <div style="margin:20px 0;">
    <img src="/bound4Logo.svg" alt="bound4" style='width:110px; height:32px;' />
   </div>
 
@@ -118,12 +122,14 @@ const CopyModal = ({
               </div>
               <div className="text-Color-Label-Alternative text-Body2-Regular">
                 {TEAM_MAP[formData.team]?.label}
-                {formData.part && ` | ${PART_MAP[formData.part]?.label}`} |{' '}
-                {formData.duty}
+                {formData.part && ` | ${PART_MAP[formData.part]?.label}`}
+                {formData.position && ` | ${formData.position}`}
+                {formData.duty && ` | ${DUTY_MAP[formData.duty]?.label}`}
                 <br />
                 {TEAM_MAP[formData.team]?.enLabel}
-                {formData.part &&
-                  ` | ${PART_MAP[formData.part]?.enLabel}`} | {formData.engDuty}
+                {formData.part && ` | ${PART_MAP[formData.part]?.enLabel}`}
+                {formData.engPosition && ` | ${formData.engPosition}`}
+                {formData.duty && ` | ${DUTY_MAP[formData.duty]?.enLabel}`}
               </div>
             </div>
             <div className="flex flex-col gap-1 text-Color-Label-Normal text-Body2-Regular">

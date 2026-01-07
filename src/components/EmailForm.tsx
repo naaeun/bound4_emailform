@@ -10,6 +10,8 @@ type EmailFormData = {
   engDuty: string;
   phoneNumber: string;
   email: string;
+  position: string;
+  engPosition: string;
 };
 
 const formatPhoneNumber = (value: string) => {
@@ -30,9 +32,9 @@ const TEAM_OPTIONS = ['플랫폼사업팀', '데이터사업팀', '경영전략�
 
 const PART_OPTIONS_BY_TEAM: Record<string, string[]> = {
   플랫폼사업팀: ['선행기술연구 파트'],
-  데이터사업팀: ['그로스러닝 파트'],
-  경영전략팀: ['파트 없음'],
 };
+
+const DUTY_OPTIONS = ['리더', '매니저'];
 
 const EmailForm = ({
   formData,
@@ -60,7 +62,7 @@ const EmailForm = ({
               }}
               inputProps={{
                 state: 'default',
-                size: 'md',
+                size: 'sm',
                 placeholder: '홍길동',
                 value: formData.name,
                 onChange: (e) => {
@@ -80,7 +82,7 @@ const EmailForm = ({
               }}
               inputProps={{
                 state: 'default',
-                size: 'md',
+                size: 'sm',
                 placeholder: 'Hong Gil Dong',
                 value: formData.engName,
                 onChange: (e) => {
@@ -90,7 +92,7 @@ const EmailForm = ({
               helperProps={{}}
             />
             <DropdownFormGroup
-              size="md"
+              size="sm"
               labelProps={{
                 label: '팀',
                 labelIcon: (
@@ -112,25 +114,77 @@ const EmailForm = ({
               }}
               helperProps={{}}
             />
-            <DropdownFormGroup
+            {formData.team === '플랫폼사업팀' && (
+              <>
+                <DropdownFormGroup
+                  size="sm"
+                  labelProps={{
+                    label: '파트',
+                    labelIcon: (
+                      <p className="text-Color-Label-Assistive text-Caption1-Regular">
+                        (선택사항)
+                      </p>
+                    ),
+                  }}
+                  placeholder="파트를 선택해주세요"
+                  options={PART_OPTIONS_BY_TEAM[formData.team]}
+                  hasValue={!!formData.part}
+                  inputValue={formData.part}
+                  onOptionSelect={(value) => {
+                    setFormData((prev) => ({ ...prev, part: value }));
+                  }}
+                  helperProps={{}}
+                />
+              </>
+            )}
+            <FormGroup
               labelProps={{
-                label: '파트',
+                label: '포지션',
                 labelIcon: (
-                  <p className="text-Color-Label-Assistive text-Caption1-Regular">
-                    (선택사항)
+                  <p className="text-Color-Feedback-Error text-Caption1-Regular">
+                    *
                   </p>
                 ),
               }}
-              placeholder="파트를 선택해주세요"
-              options={PART_OPTIONS_BY_TEAM[formData.team]}
-              hasValue={!!formData.part}
-              inputValue={formData.part}
-              onOptionSelect={(value) => {
-                setFormData((prev) => ({ ...prev, part: value }));
+              inputProps={{
+                state: 'default',
+                size: 'sm',
+                placeholder: '예시 : UX디자이너',
+                value: formData.position,
+                onChange: (e) => {
+                  setFormData((prev) => ({
+                    ...prev,
+                    position: e.target.value,
+                  }));
+                },
               }}
               helperProps={{}}
             />
             <FormGroup
+              labelProps={{
+                label: '영문 포지션',
+                labelIcon: (
+                  <p className="text-Color-Feedback-Error text-Caption1-Regular">
+                    *
+                  </p>
+                ),
+              }}
+              inputProps={{
+                state: 'default',
+                size: 'sm',
+                placeholder: 'UX Designer',
+                value: formData.engPosition,
+                onChange: (e) => {
+                  setFormData((prev) => ({
+                    ...prev,
+                    engPosition: e.target.value,
+                  }));
+                },
+              }}
+              helperProps={{}}
+            />
+            <DropdownFormGroup
+              size="sm"
               labelProps={{
                 label: '직책',
                 labelIcon: (
@@ -139,34 +193,12 @@ const EmailForm = ({
                   </p>
                 ),
               }}
-              inputProps={{
-                state: 'default',
-                size: 'md',
-                placeholder: '예시 : UX디자이너',
-                value: formData.duty,
-                onChange: (e) => {
-                  setFormData((prev) => ({ ...prev, duty: e.target.value }));
-                },
-              }}
-              helperProps={{}}
-            />
-            <FormGroup
-              labelProps={{
-                label: '영문 직책',
-                labelIcon: (
-                  <p className="text-Color-Feedback-Error text-Caption1-Regular">
-                    *
-                  </p>
-                ),
-              }}
-              inputProps={{
-                state: 'default',
-                size: 'md',
-                placeholder: 'UX Designer',
-                value: formData.engDuty,
-                onChange: (e) => {
-                  setFormData((prev) => ({ ...prev, engDuty: e.target.value }));
-                },
+              placeholder="직책 선택해주세요"
+              options={DUTY_OPTIONS}
+              hasValue={!!formData.duty}
+              inputValue={formData.duty}
+              onOptionSelect={(value) => {
+                setFormData((prev) => ({ ...prev, duty: value }));
               }}
               helperProps={{}}
             />
@@ -181,7 +213,7 @@ const EmailForm = ({
               }}
               inputProps={{
                 state: 'default',
-                size: 'md',
+                size: 'sm',
                 placeholder: '010-1234-5678',
                 value: formData.phoneNumber,
                 onChange: (e) => {
@@ -205,7 +237,7 @@ const EmailForm = ({
               }}
               inputProps={{
                 state: 'default',
-                size: 'md',
+                size: 'sm',
                 placeholder: 'abc@bound4.co.kr',
                 value: formData.email,
                 onChange: (e) => {

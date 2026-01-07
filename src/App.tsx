@@ -13,6 +13,8 @@ function App() {
     engDuty: '',
     phoneNumber: '',
     email: '',
+    position: '',
+    engPosition: '',
   });
 
   const [isCopyModalOpen, setIsCopyModalOpen] = useState(false);

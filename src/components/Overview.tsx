@@ -1,4 +1,4 @@
-import { PART_MAP, TEAM_MAP } from '../constants/org';
+import { DUTY_MAP, PART_MAP, TEAM_MAP } from '../constants/org';
 
 const Overview = ({
   formData,
@@ -12,6 +12,8 @@ const Overview = ({
     engDuty: string;
     phoneNumber: string;
     email: string;
+    position: string;
+    engPosition: string;
   };
 }) => {
   return (
@@ -29,12 +31,14 @@ const Overview = ({
             </div>
             <div className="text-Color-Label-Alternative text-Body2-Regular">
               {TEAM_MAP[formData.team]?.label}
-              {formData.part && ` | ${PART_MAP[formData.part]?.label}`} |{' '}
-              {formData.duty}
+              {formData.part && ` | ${PART_MAP[formData.part]?.label}`}
+              {formData.position && ` | ${formData.position}`}
+              {formData.duty && ` | ${DUTY_MAP[formData.duty]?.label}`}
               <br />
               {TEAM_MAP[formData.team]?.enLabel}
-              {formData.part && ` | ${PART_MAP[formData.part]?.enLabel}`} |{' '}
-              {formData.engDuty}
+              {formData.part && ` | ${PART_MAP[formData.part]?.enLabel}`}
+              {formData.engPosition && ` | ${formData.engPosition}`}
+              {formData.duty && ` | ${DUTY_MAP[formData.duty]?.enLabel}`}
             </div>
           </div>
           <div className="flex flex-col gap-1 text-Color-Label-Normal text-Body2-Regular">
