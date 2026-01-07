@@ -43,7 +43,7 @@ const CopyModal = ({
   </div>
 
   <div style="font-size:14px; margin-bottom:16px;">
-    <div>Email: <span style="text-decoration:underline;">${formData.email}</span></div>
+    <div>Email: <span style="text-decoration:underline; pointer-events:none; color:#111;">${formData.email.replace('@', '&#64;')}</span></div>
     <div>
       Mobile: <span style="text-decoration:underline;">02-6952-0664</span>
       &nbsp;| Phone:
@@ -52,7 +52,7 @@ const CopyModal = ({
   </div>
 
   <div style="margin:20px 0;">
-   <img src="/bound4Logo.svg" alt="bound4" style='width:110px; height:32px;' />
+   <img src="/bound4Logo.jpg" alt="bound4" style='width:110px; height:32px;' />
   </div>
 
   <div style="font-size:14px; font-weight:600; margin-bottom:6px;">
