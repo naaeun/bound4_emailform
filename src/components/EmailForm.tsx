@@ -1,7 +1,6 @@
 import React from 'react';
 import DropdownFormGroup from './DropdownFormGroup';
 import FormGroup from './FormGroup';
-
 type EmailFormData = {
   name: string;
   engName: string;
@@ -48,7 +47,7 @@ const EmailForm = ({
     <>
       <div className="flex h-full w-full flex-col justify-between border border-Color-Border-Normal bg-Color-Background-Normal px-6 py-10 radius-md">
         <div className="flex flex-col items-center gap-6">
-          <img src="src/assets/bound4Logo.svg" alt="" width={165} height={48} />
+          <img src="/bound4Logo.svg" alt="" width={165} height={48} />
           <div className="flex w-full flex-col gap-4">
             <FormGroup
               labelProps={{

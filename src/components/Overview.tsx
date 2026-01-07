@@ -51,7 +51,7 @@ const Overview = ({
           </div>
         </div>
         <div className="flex flex-col items-start justify-start gap-5">
-          <img src="src/assets/bound4Logo.svg" alt="" width={110} height={32} />
+          <img src="/bound4Logo.svg" alt="" width={110} height={32} />
           <div className="flex flex-col gap-3">
             <p className="text-Color-Label-Strong text-Body1-SemiBold">
               바운드포 주식회사
