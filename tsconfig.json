@@ -19,7 +19,7 @@
       }
     ],
     "paths": {
-      "@public/*": ["../public/*"]
+      // "@public/*": ["../public/*"]
     },
     "typeRoots": ["./types", "./node_modules/@types"]
   },
